@@ -1,144 +1,137 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-        <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-        <groupId>com.mt</groupId>
-        <artifactId>maven-web-application</artifactId>
-        <packaging>war</packaging>
-        <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.mt</groupId>
+    <artifactId>maven-web-application</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>maven-web-application</name>
 
-        <name>maven-web-application</name>
+    <description>Maven Web Project for Java Project</description>
 
-        <description>Maven Web Project for Java Project</description>
+    <organization>
+        <name>Mithun Technologies</name>
+        <url>http://mithuntechnologies.com/</url>
+    </organization>
 
-        <organization>
-                <name>Mithun Technologies</name>
-                <url>http://mithuntechnologies.com/</url>
-        </organization>
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <spring.version>5.1.2.RELEASE</spring.version>
+        <junit.version>4.11</junit.version>
+        <log4j.version>1.2.17</log4j.version>
+        <sonar.host.url>http://34.201.50.11:9000/</sonar.host.url>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>SANT1991@pune</sonar.password>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
-        <properties>
-                <jdk.version>1.8</jdk.version>
-                <spring.version>5.1.2.RELEASE</spring.version>
-                <junit.version>4.11</junit.version>
-                <log4j.version>1.2.17</log4j.version>
-                <sonar.host.url>http://34.201.50.11:9000/</sonar.host.url>
-                <sonar.login>admin</sonar.login>
-                <sonar.password>SANT1991@pune</sonar.password>
-                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <dependencies>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160212</version>
+        </dependency>
 
-        </properties>
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
 
-        <dependencies>
+        <!-- Provided dependency -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
 
-                <dependency>
-                        <groupId>org.json</groupId>
-                        <artifactId>json</artifactId>
-                        <version>20160212</version>
-                </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
 
-                <!-- test dependencies -->
-                <dependency>
-                        <groupId>junit</groupId>
-                        <artifactId>junit</artifactId>
-                        <version>3.8.1</version>
-                        <scope>test</scope>
-                </dependency>
- <dependency>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                        <version>3.1.0</version>
-                        <scope>provided</scope>
-                </dependency>
+        <!-- Compile dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+    </dependencies>
 
-                <dependency>
-                        <groupId>org.mockito</groupId>
-                        <artifactId>mockito-core</artifactId>
-                        <version>1.9.5</version>
-                        <scope>test</scope>
-                </dependency>
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>Mithun Technologies Releases Nexus Repository</name>
+            <url>http://3.88.202.64:8081/repository/fb-release/</url>
+        </repository>
 
-                <!-- compile dependencies -->
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Mithun Technologies Snapshot Nexus Repository</name>
+            <url>http://3.88.202.64:8081/repository/fb-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
-                <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-core</artifactId>
-                        <version>${spring.version}</version>
-                </dependency>
-                <dependency>
-                <groupId>org.springframework</groupId>
- <artifactId>spring-web</artifactId>
-                <version>${spring.version}</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-webmvc</artifactId>
-                        <version>${spring.version}</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-context</artifactId>
-                        <version>${spring.version}</version>
-                </dependency>
+    <build>
+        <finalName>maven-web-application</finalName>
 
-                <!-- provided dependencies -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
 
-                <dependency>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                        <version>3.1.0</version>
-                        <scope>provided</scope>
-                </dependency>
-  </dependencies>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.43.v20210629</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/maven-web-application</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
 
-        <distributionManagement>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
 
-            <repository>
-              <id>nexus</id>
-              <name>Mithun Technologies Releases Nexus Repository</name>
-              <url>http://3.88.202.64:8081/repository/fb-release/</url>
-            </repository>
-
-            <snapshotRepository>
-              <id>nexus</id>
-              <name>Mithun Technologies Snapshot Nexus Repository </name>
-              <url>http://3.88.202.64:8081/repository/fb-snapshot/</url>
-            </snapshotRepository>
-
-        </distributionManagement>
-
-        <build>
-                <finalName>maven-web-application</finalName>
-
-                <plugins>
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>3.3.2</version>
-</plugin>
-
-                        <plugin>
-                                <groupId>org.eclipse.jetty</groupId>
-                                <artifactId>jetty-maven-plugin</artifactId>
-                                <version>9.2.11.v20150529</version>
-                                <configuration>
-                                        <scanIntervalSeconds>10</scanIntervalSeconds>
-                                        <webApp>
-                                                <contextPath>/maven-web-application</contextPath>
-                                        </webApp>
-                                </configuration>
-                        </plugin>
-                <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version> <!-- Use a recent version of the plugin -->
-            <configuration>
-     <source>8</source>
-                <target>8</target>
-            </configuration>
-        </plugin>
-    </plugins>
-                </build>
-
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.7.0.1746</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
